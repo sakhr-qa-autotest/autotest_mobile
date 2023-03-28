@@ -20,7 +20,7 @@ class AllureAttach:
             allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
     def __browserstackVideo(self, driver: WebDriver):
-        if self.__setting.attachments() and self.__setting.browserstack():
+        if self.__setting.attachments() and self.__setting.isBrowserstack():
             video_url = " https://app-automate.browserstack.com/s3-upload/bs-video-logs-euw/s3.eu-west-1/" \
                         + driver.session_id + "/video-" + driver.session_id + ".mp4"
             html = "<html><body><video width='100%' height='100%' controls autoplay><source src='" \
