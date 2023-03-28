@@ -1,0 +1,5 @@
+.pytest_cache
+allure-results
+poetry.lock
+venv
+docker

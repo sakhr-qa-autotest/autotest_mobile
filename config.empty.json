@@ -1,0 +1,32 @@
+{
+  "emulator": {
+    "automationName": "UIAutomator2",
+    "platformName": "Android",
+    "app": "./src/app-alpha-universal-release.apk",
+    "appWaitActivity": "*",
+    "udid": "emulator-5554",
+    "hubUrl": "http://127.0.0.1:4723/wd/hub"
+  },
+  "browserstack": {
+    "automationName": "UIAutomator2",
+    "platformName": "android",
+    "platformVersion": "9.0",
+    "deviceName": "Google Pixel 3",
+    "app": "bs://8db66441433bf10e0b258309e747c15471a6ad3d",
+    "hubUrl": "http://hub.browserstack.com/wd/hub",
+    "userLogin": "",
+    "accessKey": "",
+    "projectName": "First Python project",
+    "buildName": "browserstack-autotest-build-1",
+    "sessionName": "BStack first_test"
+  },
+  "real": {
+    "hubUrl": "http://127.0.0.1:4723/wd/hub",
+    "automationName": "UIAutomator2",
+    "platformName": "Android",
+    "app": "./app-alpha-universal-release.apk",
+    "appWaitActivity": "*",
+    "newCommandTimeout": 360,
+    "udid": "335099b6"
+  }
+}
