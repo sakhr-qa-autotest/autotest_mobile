@@ -16,9 +16,9 @@ def test_successful_search(window):
         main.search().click()
         search = Search(window.driver())
         search.search().set_text("appium")
-        results = search.results()
+        result = search.findElementByText('Automation for Apps')
 
-        assert len(results) >= 2
+        assert result.text == 'Automation for Apps'
 
 
 @allure.title("Проверяем успешный поиск")

@@ -15,3 +15,9 @@ class Main:
 
     def search(self) -> WebElement:
         return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/search_container')
+
+    def bottomMore(self) -> WebElement:
+        return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/nav_more_container')
+
+    def bottomSetting(self) -> WebElement:
+        return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/main_drawer_settings_container')
