@@ -28,4 +28,4 @@ services:
       - ../utils:/var/pythonproject/utils/
       - ../allure-results:/var/pythonproject/allure-results/
       - ../config.test.json:/var/pythonproject/config.test.json
-    command: sh -c "poetry install && poetry run pytest --env=test --driver=browserstack --attachments=false"
+    command: sh -c "poetry install && poetry run pytest --env=test --driver=browserstack"
