@@ -1,12 +1,13 @@
 import allure
 from allure import step
 
+from model.page.main.main import Main
 from model.page.welcome.screen import Screen
 
 
 @allure.title("Проверка экрана приветствие")
 def test_continue(window):
-    with step('Skip'):
+    with step('Проверяем и читаем сообщения при первом запуске'):
         screen = Screen(window.driver())
 
         title0 = screen.title().text
@@ -23,3 +24,13 @@ def test_continue(window):
 
         title4 = screen.title().text
         assert "Send anonymous data".replace('\n', '') == title4.replace('\n', '')
+
+
+@allure.title("Проверка кнопку skip")
+def test_skip(window):
+    with step('Нажимаем на skip и проверяем переход'):
+        screen = Screen(window.driver())
+        screen.skip().click()
+
+        main = Main(window.driver())
+        assert main.logo().text == ""
