@@ -1,6 +1,6 @@
 import allure
 from allure_commons.types import AttachmentType
-from selenium.webdriver.chrome.webdriver import WebDriver
+from appium import webdriver
 
 from utils.settings import Settings
 
@@ -11,15 +11,15 @@ class AllureAttach:
     def __init__(self, setting: Settings):
         self.__setting = setting
 
-    def add(self, driver: WebDriver):
+    def add(self, driver: webdriver):
         self.__image(driver)
         self.__browserstackVideo(driver)
 
-    def __image(self, driver: WebDriver):
+    def __image(self, driver: webdriver):
         if self.__setting.attachments():
             allure.attach(driver.get_screenshot_as_png(), name="Screenshot", attachment_type=AttachmentType.PNG)
 
-    def __browserstackVideo(self, driver: WebDriver):
+    def __browserstackVideo(self, driver: webdriver):
         if self.__setting.attachments() and self.__setting.isBrowserstack():
             video_url = " https://app-automate.browserstack.com/s3-upload/bs-video-logs-euw/s3.eu-west-1/" \
                         + driver.session_id + "/video-" + driver.session_id + ".mp4"

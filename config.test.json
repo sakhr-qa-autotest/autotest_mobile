@@ -14,8 +14,8 @@
     "deviceName": "Google Pixel 3",
     "app": "bs://8db66441433bf10e0b258309e747c15471a6ad3d",
     "hubUrl": "http://hub.browserstack.com/wd/hub",
-    "userLogin": "",
-    "accessKey": "",
+    "userLogin": "test_O20fZM",
+    "accessKey": "2ZosJZjvq6WfiqkJ3v5o",
     "projectName": "First Python project",
     "buildName": "browserstack-autotest-build-1",
     "sessionName": "BStack first_test"

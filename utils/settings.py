@@ -57,5 +57,8 @@ class Settings:
     def real(self) -> real.Real:
         return self.__real
 
+    def setAttachments(self, attachments: bool = False):
+        self.__attachments = attachments
+
     def attachments(self) -> bool:
         return self.__attachments

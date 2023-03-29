@@ -1,3 +1,5 @@
+from distutils.util import strtobool
+
 import pytest
 
 from utils.allure_attach import AllureAttach
@@ -17,6 +19,11 @@ def settings(request) -> Settings:
         request.config.getoption("--env"),
         request.config.getoption("--driver")
     )
+
+    if type(request.config.getoption("--attachments")) != type(True):
+        setting.setAttachments(bool(strtobool(request.config.getoption("--attachments"))))
+    else:
+        setting.setAttachments(request.config.getoption("--attachments"))
 
     return setting
 
