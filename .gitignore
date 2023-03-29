@@ -2,4 +2,3 @@
 allure-results
 poetry.lock
 venv
-docker
