@@ -34,8 +34,14 @@ class Real:
     def automationName(self) -> str:
         return self.__automationName
 
+    def setPlatformName(self, platformName: str):
+        self.__platformName = platformName
+
     def platformName(self) -> str:
         return self.__platformName
+
+    def setUdid(self, udid: str):
+        self.__udid = udid
 
     def app(self) -> str:
         return self.__app

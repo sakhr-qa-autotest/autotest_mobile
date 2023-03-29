@@ -1,23 +1,29 @@
 from distutils.util import strtobool
 
 import pytest
+from _pytest.config.argparsing import Parser
+from _pytest.fixtures import SubRequest
 
 from utils.allure_attach import AllureAttach
 from utils.driver import Driver
 from utils.settings import Settings
 
 
-def pytest_addoption(parser):
+def pytest_addoption(parser: Parser):
     parser.addoption("--env", default="test")
     parser.addoption("--driver", default="emulator")
     parser.addoption("--attachments", default=True)
-
+    parser.addoption("--platformName", default=None)
+    parser.addoption("--udid", default=None)
+    parser.addoption("--platformVersion", default=None)
+    parser.addoption("--sessionName", default=None)
 
 @pytest.fixture(scope='session')
-def settings(request) -> Settings:
+def settings(request: SubRequest) -> Settings:
     setting = Settings(
         request.config.getoption("--env"),
-        request.config.getoption("--driver")
+        request.config.getoption("--driver"),
+        request
     )
 
     if type(request.config.getoption("--attachments")) != type(True):

@@ -31,6 +31,12 @@ class Emulator:
     def automationName(self) -> str:
         return self.__automationName
 
+    def setUdid(self, udid: str):
+        self.__udid = udid
+
+    def setPlatformName(self, platformName: str):
+        self.__platformName = platformName
+
     def platformName(self) -> str:
         return self.__platformName
 

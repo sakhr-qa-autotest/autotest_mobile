@@ -40,11 +40,17 @@ class Browserstack:
         if 'sessionName' in config:
             self.__sessionName = config['sessionName']
 
+    def setPlatformName(self, platformName: str):
+        self.__platformName = platformName
+
     def platformName(self) -> str:
         return self.__platformName
 
     def automationName(self) -> str:
         return self.__automationName
+
+    def setPlatformVersion(self, platformVersion: str):
+        self.__platformVersion = platformVersion
 
     def platformVersion(self) -> str:
         return self.__platformVersion
@@ -69,6 +75,9 @@ class Browserstack:
 
     def buildName(self) -> str:
         return self.__buildName
+
+    def setSessionName(self, sessionName: str):
+        self.__sessionName = sessionName
 
     def sessionName(self) -> str:
         return self.__sessionName

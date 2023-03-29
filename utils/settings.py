@@ -1,5 +1,7 @@
 import json
 
+from _pytest.fixtures import SubRequest
+
 import utils.file
 from utils.setting import browserstack, emulator, real
 
@@ -18,7 +20,7 @@ class Settings:
 
     __config: {}
 
-    def __init__(self, env: str, driver: str):
+    def __init__(self, env: str, driver: str, subRequest: SubRequest):
 
         fp = open(utils.file.abs_path_from_project(f'config.{env}.json'))
         config = json.loads(fp.read())
@@ -28,14 +30,44 @@ class Settings:
             if driver == 'emulator':
                 self.__isEmulator = True
                 self.__emulator = emulator.Emulator(config['emulator'])
+
+                platformName = self.__getoption('--platformName', subRequest)
+                if platformName is not None:
+                    self.__emulator.setPlatformName(platformName)
+
+                udid = self.__getoption('--udid', subRequest)
+                if udid is not None:
+                    self.__emulator.setUdid(udid)
+
         if 'browserstack' in config:
             if driver == 'browserstack':
                 self.__isBrowserstack = True
                 self.__browserstack = browserstack.Browserstack(config['browserstack'])
+
+                platformName = self.__getoption('--platformName', subRequest)
+                if platformName is not None:
+                    self.__browserstack.setPlatformVersion(platformName)
+
+                platformVersion = self.__getoption('--platformVersion', subRequest)
+                if platformVersion is not None:
+                    self.__browserstack.setPlatformVersion(platformVersion)
+
+                sessionName = self.__getoption('--sessionName', subRequest)
+                if sessionName is not None:
+                    self.__browserstack.setSessionName(sessionName)
+
         if 'real' in config:
             if driver == 'real':
                 self.__IsReal = True
                 self.__real = real.Real(config['real'])
+
+                udid = self.__getoption('--udid', subRequest)
+                if udid is not None:
+                    self.__real.setUdid(udid)
+
+                platformName = self.__getoption('--platformName', subRequest)
+                if platformName is not None:
+                    self.__real.setPlatformName(platformName)
         else:
             raise Exception("Driver not found")
 
@@ -62,3 +94,9 @@ class Settings:
 
     def attachments(self) -> bool:
         return self.__attachments
+
+    def __getoption(self, option: str, subRequest: SubRequest):
+        try:
+            return subRequest.config.getoption(option)
+        except:
+            return None
