@@ -1,6 +1,6 @@
 from appium import webdriver
 
-from utils.settings import Settings
+from wikipedia.utils.settings import Settings
 
 
 class Driver:

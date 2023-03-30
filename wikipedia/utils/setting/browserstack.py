@@ -1,7 +1,5 @@
 from appium.options.android import UiAutomator2Options
 
-import utils.file
-
 
 class Browserstack:
     __automationName: str = None
@@ -101,12 +99,7 @@ class Browserstack:
         # self.__hubUrl = "http://" + self.userLogin() + ":" + self.accessKey() + "@hub-cloud.browserstack.com/wd/hub"
 
         if self.app() is not None:
-            options.app = (
-                utils.file.abs_path_from_project(self.app())
-                if self.app() and (
-                        self.app().startswith('./') or self.app().startswith('../'))
-                else self.app()
-            )
+            options.app = self.app()
 
         if self.platformName() is not None:
             options.platform_name = self.platformName()

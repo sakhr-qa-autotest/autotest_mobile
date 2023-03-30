@@ -4,9 +4,9 @@ import pytest
 from _pytest.config.argparsing import Parser
 from _pytest.fixtures import SubRequest
 
-from utils.allure_attach import AllureAttach
-from utils.driver import Driver
-from utils.settings import Settings
+from wikipedia.utils.allure_attach import AllureAttach
+from wikipedia.utils.driver import Driver
+from wikipedia.utils.settings import Settings
 
 
 def pytest_addoption(parser: Parser):

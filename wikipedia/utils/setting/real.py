@@ -1,13 +1,14 @@
 from appium.options.android import UiAutomator2Options
 
-import utils.file
+from wikipedia.utils.file import abs_path_from_project
 
 
-class Emulator:
+class Real:
     __automationName: str = None
     __platformName: str = None
     __app: str = None
     __appWaitActivity: str = None
+    __newCommandTimeout: str = None
     __udid: str = None
     __hubUrl: str = None
 
@@ -20,6 +21,8 @@ class Emulator:
             self.__app = config['app']
         if 'appWaitActivity' in config:
             self.__appWaitActivity = config['appWaitActivity']
+        if 'newCommandTimeout' in config:
+            self.__newCommandTimeout = config['newCommandTimeout']
         if 'udid' in config:
             self.__udid = config['udid']
         if 'hubUrl' in config:
@@ -31,20 +34,23 @@ class Emulator:
     def automationName(self) -> str:
         return self.__automationName
 
-    def setUdid(self, udid: str):
-        self.__udid = udid
-
     def setPlatformName(self, platformName: str):
         self.__platformName = platformName
 
     def platformName(self) -> str:
         return self.__platformName
 
+    def setUdid(self, udid: str):
+        self.__udid = udid
+
     def app(self) -> str:
         return self.__app
 
     def appWaitActivity(self) -> str:
         return self.__appWaitActivity
+
+    def newCommandTimeout(self) -> str:
+        return self.__newCommandTimeout
 
     def udid(self) -> str:
         return self.__udid
@@ -54,7 +60,7 @@ class Emulator:
 
         if self.app() is not None:
             options.app = (
-                utils.file.abs_path_from_project(self.app())
+                abs_path_from_project('../' + self.app())
                 if self.app() and (
                         self.app().startswith('./') or self.app().startswith('../'))
                 else self.app()

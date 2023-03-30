@@ -1,9 +1,9 @@
 import allure
 from allure import step
 
-from model.page.main.main import Main
-from model.page.setting import Setting
-from model.page.welcome.screen import Screen
+from wikipedia.model.page.main.main import Main
+from wikipedia.model.page.setting import Setting
+from wikipedia.model.page.welcome.screen import Screen
 
 
 @allure.title("Добавляем дополнительный язык")

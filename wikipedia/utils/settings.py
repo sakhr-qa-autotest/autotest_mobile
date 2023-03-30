@@ -2,8 +2,9 @@ import json
 
 from _pytest.fixtures import SubRequest
 
-import utils.file
-from utils.setting import browserstack, emulator, real
+from wikipedia.utils.file import abs_path_from_project
+from wikipedia.utils.setting import browserstack, emulator
+from wikipedia.utils.setting import real
 
 
 class Settings:
@@ -22,7 +23,7 @@ class Settings:
 
     def __init__(self, env: str, driver: str, subRequest: SubRequest):
 
-        fp = open(utils.file.abs_path_from_project(f'config.{env}.json'))
+        fp = open(abs_path_from_project(f'../config.{env}.json'))
         config = json.loads(fp.read())
         self.__config = config
 
