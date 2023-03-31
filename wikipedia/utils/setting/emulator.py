@@ -34,14 +34,14 @@ class Emulator:
     def setUdid(self, udid: str):
         self.__udid = udid
 
-    def setPlatformName(self, platformName: str):
-        self.__platformName = platformName
-
     def platformName(self) -> str:
         return self.__platformName
 
     def app(self) -> str:
         return self.__app
+
+    def setApp(self, app: str):
+        self.__app = app
 
     def appWaitActivity(self) -> str:
         return self.__appWaitActivity

@@ -38,9 +38,6 @@ class Browserstack:
         if 'sessionName' in config:
             self.__sessionName = config['sessionName']
 
-    def setPlatformName(self, platformName: str):
-        self.__platformName = platformName
-
     def platformName(self) -> str:
         return self.__platformName
 
@@ -50,8 +47,14 @@ class Browserstack:
     def setPlatformVersion(self, platformVersion: str):
         self.__platformVersion = platformVersion
 
+    def setApp(self, app: str):
+        self.__app = app
+
     def platformVersion(self) -> str:
         return self.__platformVersion
+
+    def setDeviceName(self, value: str):
+        self.__deviceName = value
 
     def deviceName(self) -> str:
         return self.__deviceName
@@ -100,9 +103,6 @@ class Browserstack:
 
         if self.app() is not None:
             options.app = self.app()
-
-        if self.platformName() is not None:
-            options.platform_name = self.platformName()
 
         if self.deviceName() is not None:
             options.device_name = self.deviceName()

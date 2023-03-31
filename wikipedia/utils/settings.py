@@ -32,22 +32,18 @@ class Settings:
                 self.__isEmulator = True
                 self.__emulator = emulator.Emulator(config['emulator'])
 
-                platformName = self.__getoption('--platformName', subRequest)
-                if platformName is not None:
-                    self.__emulator.setPlatformName(platformName)
-
                 udid = self.__getoption('--udid', subRequest)
                 if udid is not None:
                     self.__emulator.setUdid(udid)
+
+                app = self.__getoption('--app', subRequest)
+                if app is not None:
+                    self.__emulator.setApp(app)
 
         if 'browserstack' in config:
             if driver == 'browserstack':
                 self.__isBrowserstack = True
                 self.__browserstack = browserstack.Browserstack(config['browserstack'])
-
-                platformName = self.__getoption('--platformName', subRequest)
-                if platformName is not None:
-                    self.__browserstack.setPlatformVersion(platformName)
 
                 platformVersion = self.__getoption('--platformVersion', subRequest)
                 if platformVersion is not None:
@@ -57,6 +53,13 @@ class Settings:
                 if sessionName is not None:
                     self.__browserstack.setSessionName(sessionName)
 
+                app = self.__getoption('--app', subRequest)
+                if app is not None:
+                    self.__browserstack.setApp(app)
+
+                deviceName = self.__getoption('--deviceName', subRequest)
+                if deviceName is not None:
+                    self.__browserstack.setDeviceName(deviceName)
         if 'real' in config:
             if driver == 'real':
                 self.__IsReal = True
@@ -66,9 +69,9 @@ class Settings:
                 if udid is not None:
                     self.__real.setUdid(udid)
 
-                platformName = self.__getoption('--platformName', subRequest)
-                if platformName is not None:
-                    self.__real.setPlatformName(platformName)
+                app = self.__getoption('--app', subRequest)
+                if app is not None:
+                    self.__real.setApp(app)
         else:
             raise Exception("Driver not found")
 

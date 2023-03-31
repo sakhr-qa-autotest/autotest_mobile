@@ -16,7 +16,10 @@ def pytest_addoption(parser: Parser):
     parser.addoption("--platformName", default=None)
     parser.addoption("--udid", default=None)
     parser.addoption("--platformVersion", default=None)
+    parser.addoption("--deviceName", default="Google Pixel 3")
     parser.addoption("--sessionName", default=None)
+    parser.addoption("--app", default=None)
+
 
 @pytest.fixture(scope='session')
 def settings(request: SubRequest) -> Settings:
