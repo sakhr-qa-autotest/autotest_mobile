@@ -44,10 +44,13 @@
 
 # Описание проекта
 
-Автоматизированая проверка корзины, каталога, поиска, сравнения товаров для сайта  https://demowebshop.tricentis.com/.
-Тесты написаны на python с использованием pytest+selenium.
+Автоматизированая проверка Android приложение Wikipedia
 
-<a name="параметры_запуска"></a>
+# Проверяет:
+<b>* Поиск</b><br>
+<b>* Настройки</b><br>
+<b>* Страница Wellcome</b><br>
+<a name="параметры_запуска"></a><br>
 
 # Параметры запуска
 
@@ -127,7 +130,7 @@ rm -rf allure-results
 
 <a name="запуск_дженкинс"></a>
 
-# Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/sakhr_autotest_ui/8/allure/)
+# Запуск тестов в [Jenkins](https://jenkins.autotests.cloud/job/sakhr_autotest_mobile/)
 
 <details>
 <summary>Jenkins</summary>
@@ -140,7 +143,7 @@ rm -rf allure-results
 
 <a name="report"></a>
 
-# [Отчет](https://jenkins.autotests.cloud/job/sakhr_autotest_ui/8/allure/#) о выполнении тестов
+# [Отчет](https://jenkins.autotests.cloud/job/sakhr_autotest_ui/#) о выполнении тестов
 
 <details>
 <summary>AllureReport</summary>
@@ -151,15 +154,6 @@ rm -rf allure-results
 <img width="90%" title="allureSuites" src="media/allureSuites.png" />
 </details>
 
-
-<details>
-<summary>AllureTestOps</summary>
-Главная страница сборки
-<img width="90%" title="allureTestOps" src="media/allureTestOps.png" />
-<br/><br/>
-Сборка с параметрами
-<img width="90%" title="allureTestOps" src="media/allureTestOps1.png" />
-</details>
 
 <details>
 <summary>Browserstack</summary>
@@ -180,12 +174,8 @@ rm -rf allure-results
 
 # Пример прохождения теста на удаленной машине
 
-<img width="50%" title="example" src="media/example.gif" />
+<img width="30%" title="example" src="media/example.gif" />
 
 <a name="reportTelegram"></a>
-
-# По результатам работы тестов отправляется краткий отчет в Telegram
-
-<img width="40%" title="telegram" src="media/telegram.png" />
 
 
