@@ -8,13 +8,13 @@ class Driver:
 
     def __init__(self, settings: Settings):
 
-        if settings.isBrowserstack() == True:
+        if settings.is_browserstack() == True:
             options = settings.browserstack().options()
             hubUrl = settings.browserstack().hubUrl()
-        elif settings.isEmulator() == True:
+        elif settings.is_emulator() == True:
             options = settings.emulator().options()
             hubUrl = settings.emulator().hubUrl()
-        elif settings.isReal() == True:
+        elif settings.is_real() == True:
             options = settings.real().options()
             hubUrl = settings.real().hubUrl()
         else:

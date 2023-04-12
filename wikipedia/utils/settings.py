@@ -11,13 +11,13 @@ class Settings:
     __attachments: bool = True
 
     __emulator: emulator.Emulator
-    __isEmulator: bool = False
+    __is_emulator: bool = False
 
     __browserstack: browserstack.Browserstack
-    __isBrowserstack: bool = False
+    __is_browserstack: bool = False
 
     __real: real.Real
-    __IsReal: bool = False
+    __is_real: bool = False
 
     __config: {}
 
@@ -29,7 +29,7 @@ class Settings:
 
         if 'emulator' in config:
             if driver == 'emulator':
-                self.__isEmulator = True
+                self.__is_emulator = True
                 self.__emulator = emulator.Emulator(config['emulator'])
 
                 udid = self.__getoption('--udid', subRequest)
@@ -42,7 +42,7 @@ class Settings:
 
         if 'browserstack' in config:
             if driver == 'browserstack':
-                self.__isBrowserstack = True
+                self.__is_browserstack = True
                 self.__browserstack = browserstack.Browserstack(config['browserstack'])
 
                 platformVersion = self.__getoption('--platformVersion', subRequest)
@@ -62,7 +62,7 @@ class Settings:
                     self.__browserstack.setDeviceName(deviceName)
         if 'real' in config:
             if driver == 'real':
-                self.__IsReal = True
+                self.__is_real = True
                 self.__real = real.Real(config['real'])
 
                 udid = self.__getoption('--udid', subRequest)
@@ -75,14 +75,14 @@ class Settings:
         else:
             raise Exception("Driver not found")
 
-    def isEmulator(self) -> bool:
-        return self.__isEmulator
+    def is_emulator(self) -> bool:
+        return self.__is_emulator
 
-    def isBrowserstack(self) -> bool:
-        return self.__isBrowserstack
+    def is_browserstack(self) -> bool:
+        return self.__is_browserstack
 
-    def isReal(self) -> bool:
-        return self.__IsReal
+    def is_real(self) -> bool:
+        return self.__is_real
 
     def emulator(self) -> emulator.Emulator:
         return self.__emulator
@@ -93,7 +93,7 @@ class Settings:
     def real(self) -> real.Real:
         return self.__real
 
-    def setAttachments(self, attachments: bool = False):
+    def set_attachments(self, attachments: bool = False):
         self.__attachments = attachments
 
     def attachments(self) -> bool:

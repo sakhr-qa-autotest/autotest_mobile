@@ -1,7 +1,7 @@
 from appium import webdriver
 
 
-class BottomMenu:
+class bottom_menu:
     __driver: webdriver
 
     def __init__(self, driver: webdriver):

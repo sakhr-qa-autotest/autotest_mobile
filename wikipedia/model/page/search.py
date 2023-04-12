@@ -15,16 +15,16 @@ class Search:
     def search(self) -> WebElement:
         return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/search_src_text')
 
-    def resultText(self) -> WebElement:
+    def result_text(self) -> WebElement:
         return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/results_text')
 
-    def closeSearch(self) -> WebElement:
+    def close_search(self) -> WebElement:
         return self.__driver.find_element(AppiumBy.ID, 'org.wikipedia.alpha:id/search_close_btn')
 
-    def backToMain(self) -> WebElement:
+    def back_to_main(self) -> WebElement:
         return self.__driver.find_element(AppiumBy.XPATH, '//android.widget.ImageButton[@content-desc="Navigate up"]')
 
-    def findElementByText(self, text: str, className: str = 'android.widget.TextView') -> WebElement:
+    def find_element_by_text(self, text: str, className: str = 'android.widget.TextView') -> WebElement:
         time.sleep(0.3)
         elements = self.__driver.find_elements(AppiumBy.CLASS_NAME, className)
 

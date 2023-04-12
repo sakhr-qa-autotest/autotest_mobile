@@ -16,7 +16,7 @@ def test_successful_search(window):
         main.search().click()
         search = Search(window.driver())
         search.search().set_text("appium")
-        result = search.findElementByText('Automation for Apps')
+        result = search.find_element_by_text('Automation for Apps')
 
         assert result.text == 'Automation for Apps'
 
@@ -32,7 +32,7 @@ def test_unsuccessful_search(window):
         search = Search(window.driver())
         search.search().set_text("appiumdddd")
 
-        assert search.resultText().text == "No results"
+        assert search.result_text().text == "No results"
 
 
 @allure.title("Очистка инпута поиска")
@@ -45,7 +45,7 @@ def test_clear_search_input(window):
     search.search().set_text("appiumdddd")
 
     with step('Нажимаем иконку очистки поля поиска'):
-        search.closeSearch().click()
+        search.close_search().click()
 
     assert search.search().text == 'Search Wikipedia'
 
@@ -59,6 +59,6 @@ def test_back_to_main(window):
     search = Search(window.driver())
 
     with step('Нажимаем вернуться назад'):
-        search.backToMain().click()
+        search.back_to_main().click()
 
     assert main.logo().text == ""

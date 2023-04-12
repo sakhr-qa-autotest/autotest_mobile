@@ -30,9 +30,9 @@ def settings(request: SubRequest) -> Settings:
     )
 
     if type(request.config.getoption("--attachments")) != type(True):
-        setting.setAttachments(bool(strtobool(request.config.getoption("--attachments"))))
+        setting.set_attachments(bool(strtobool(request.config.getoption("--attachments"))))
     else:
-        setting.setAttachments(request.config.getoption("--attachments"))
+        setting.set_attachments(request.config.getoption("--attachments"))
 
     return setting
 
